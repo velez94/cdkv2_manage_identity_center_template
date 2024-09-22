@@ -1,0 +1,48 @@
+project_name: 'manage_authorization_delegate_identy_center'
+
+account_devsecops: '123456789014'
+region_devsecops: 'us-east-2'
+
+# Variables Pipeline
+source_repository:  "GitHub" # GitHub or codecommit
+
+github_repository:
+  create_connection: "true"
+  repo_name: "cdkv2_manage_identity_center_template" # the github repository for this project
+  owner: "youraccount"
+  source_branch: "main"
+
+
+account_sso: '123456789012'
+region_sso: 'us-east-2'
+
+sso_instance_arn: 'arn:aws:sso:::instance/ssoins-1234567890123727'
+security_specialist_email: "avelez@domain.xx"
+sys_ops_email: "sysops@domain.xx"
+devsecops_email: "devsecops@domain.xx"
+webhook_ops_channel: "https://org.webhook.office.com/webhookb2/3f050024-39a1-4899-afda-52ec3e1ec97a@0cf11b83-d338-43a4-ba90-34cfa9985885/IncomingWebhook/346e9df1d1a64c5a92cb73x5666f00c23/09e86cd8-bb3f-4233-8905-ca908f4973d0"
+reports_bucket: "domain-secure-reports"
+create_reports_bucket: "True"
+
+permissions_set:
+  - name: 'Products_Admin_View_Root'
+    description: 'Permissions Set for team Admin Organizations Products Only View'
+    policies_file: 'policies/policy_allow_all_access_dev_sandbox_users_root.json'
+    managed_policies: [ 'arn:aws:iam::aws:policy/ReadOnlyAccess' ]
+    session_duration: '8'
+    assing_to:
+      - name: 'DevSecOps_Admins'
+        principal_id: "318bc590-a071-70f5-63f6-abcd24799e4e33"
+        principal_type: "GROUP"
+        target_ids:
+          - "0122345678173"
+        target_type: "AWS_ACCOUNT"
+
+---
+# Tags definitions align with corporation instructions
+tags:
+  - key: 'Project'
+    value: 'cdk_sso_management'
+  - key: 'Environment'
+    value: 'Prod'
+

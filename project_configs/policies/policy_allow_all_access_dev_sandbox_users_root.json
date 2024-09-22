@@ -1,0 +1,28 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyAllOutsideEU",
+      "Effect": "Deny",
+      "NotAction": [
+        "aws-portal:*",
+        "budgets:*",
+        "health:*",
+        "pricing:*",
+        "s3:GetAccountPublic*",
+        "s3:ListAllMyBuckets",
+        "billing:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": [
+            "us-east-2",
+            "us-east-1"
+
+          ]
+        }
+      }
+    }
+  ]
+}
