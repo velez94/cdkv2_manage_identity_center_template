@@ -1,8 +1,16 @@
 
-# Welcome to your CDK Python project!
+# Welcome to Manage Identity Center Authorization with AWS Developer tools.
 
-This is a blank project for CDK development with Python.
 
+This is a project for CDK development with Python.
+
+## Architecture Diagram
+
+![architecture diagram](docs/img/continuous-deployment-validate-policies.png)
+
+> Please read:   [Continuous Delivery applied to Authorization with IAM Identity Center and AWS IAM Access Analyzer – Part 2](https://dev.to/avelez/continuous-delivery-applied-to-authorization-with-iam-identity-center-and-aws-iam-access-analyzer-part-2-35lb)
+
+## The CDK instructions
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 This project is set up like a standard Python project.  The initialization
